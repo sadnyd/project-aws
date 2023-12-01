@@ -26,6 +26,7 @@ def home():
     return render_template('CreateAccount.html')
 
 
+
 @app.route("/createaccount", methods=['POST'])
 def CreateAccount():
     username = request.form['username']
@@ -34,9 +35,10 @@ def CreateAccount():
     last_name = request.form['last_name']
     location = request.form['location']
     role = request.form['role']
+    job= request.form['job']
     user_photo_file = request.files['user_photo_file']
 
-    insert_sql = "INSERT INTO "+table+ " VALUES (%s, %s, %s, %s, %s, %s)"
+    insert_sql = "INSERT INTO "+table+ " VALUES (%s, %s, %s, %s, %s, %s, %s)"
     cursor = db_conn.cursor()
 
     if user_photo_file.filename == "":
@@ -44,7 +46,7 @@ def CreateAccount():
 
     try:
 
-        cursor.execute(insert_sql, (username, password, first_name, last_name, location, role))
+        cursor.execute(insert_sql, (username, password, first_name, last_name, location, role, job))
         db_conn.commit()
         user_name = "" + first_name + " " + last_name
         # Uplaod image file in S3 #
@@ -74,7 +76,29 @@ def CreateAccount():
         cursor.close()
 
     print("all modification done...")
-    #return render_template('CreateAccountOutput.html', name=user_name)
+    return render_template('CreateAccountOutput.html', name=user_name)
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+
+        query = "SELECT COUNT(*) FROM users WHERE username =%s AND password = %s"
+        cursor = db_conn.cursor()
+        try:
+            cursor.execute(query, (username, password))
+            query = cursor.fetchone()
+            check = query[0]
+            if check == 1:
+                return "Login successful"
+            else:
+                return "Invalid username or password"
+        finally:
+            cursor.close()
+        
+    return render_template('Login_page.html')
 
 
 if __name__ == '__main__':

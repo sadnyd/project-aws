@@ -1,0 +1,66 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 30px 400px;
+    align-items: center;
+    padding: 0;
+    box-sizing: border-box;
+    position: relative;
+    background-image: url("../images/pexels-soumil-kumar-735911.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    backdrop-filter: blur(20px);
+}
+button {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+.radio-container {
+    display: inline;
+    align-items: auto;
+    margin-right: 3px;
+}
+.custom-radio {
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid #3498db;
+    margin-right: 2px;
+    outline: none;
+    cursor: pointer;
+  }
+  .custom-radio:checked {
+    background-color: #3498db;
+    border: 2px solid #3498db;
+  }
+  .radio-label {
+    font-size: 16px;
+    color: #333;
+  }
+  
+.primary-button {
+    background-color: #3498db;
+    color: #ffffff;
+    border: 2px solid #3498db;
+}
+  
+.primary-button:hover {
+    background-color: #2c3e50;
+    color: #ffffff;
+}
+center {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+    border-radius: 25px;
+}

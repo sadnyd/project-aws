@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login page</title>
+  <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+  <div class="login-container">
+    <form action="/login" autocomplete="on" method="POST" enctype="multipart/form-data">
+      <center><h1>Login</h1></center>
+      Username:  <input type="text" name="username"><br><br>
+      Password:  <input type="password" name="password" ><br><br>
+      <div class="button login-button">Login</div>
+    </form>
+    <div class="button create-account-button" onclick="window.location.href='CreateAccount.html'">Create Account</div>
+    
+  </div>
+</body>
+</html>
