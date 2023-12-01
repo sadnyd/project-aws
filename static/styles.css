@@ -5,7 +5,7 @@ body {
     padding: 0;
     box-sizing: border-box;
     position: relative;
-    background-image: url("../images/pexels-soumil-kumar-735911.jpg");
+    background-image: url("../static/images/pexels-soumil-kumar-735911.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
