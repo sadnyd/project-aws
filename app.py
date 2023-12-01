@@ -74,7 +74,7 @@ def CreateAccount():
         cursor.close()
 
     print("all modification done...")
-    return render_template('CreateAccountOutput.html', name=user_name)
+    #return render_template('CreateAccountOutput.html', name=user_name)
 
 
 if __name__ == '__main__':
