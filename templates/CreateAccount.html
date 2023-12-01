@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Create Account</title>
+</head>
+
+<center>
+    <font>
+        <h1>Create Account</h1>
+
+        <body>
+
+            <form action="/createaccount" autocomplete="on" method="POST" enctype="multipart/form-data">
+
+                Username:<br> <input type="text" name="username" autofocus size="40"><br><br>
+
+                Password:<br> <input type="password" name="password" ><br><br>
+
+                First Name:<br> <input type="text" name="first_name"><br><br>
+
+                Last Name:<br> <input type="text" name="last_name"><br><br>
+
+                Location:<br> <input type="text" name="location"><br><br>
+
+                Role:
+                <input type="radio" name="role" value="job_seeker"> Job Seeker
+                <input type="radio" name="role" value="job_provider"> Job Provider<br><br>
+
+                Photo: <input type="file" name="user_photo_file" ><br><br>
+
+                <button type="submit">CREATE ACCOUNT</button>
+
+            </form>
+
+            <button type="submit" formaction="/showprofiles" >SHOW PROFILES</button><br><br>
+
+        </body>
+
+    </font>
+</center>
+
+</html>
