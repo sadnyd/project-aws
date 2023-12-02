@@ -53,8 +53,8 @@ def CreateAccount():
 
         cursor.execute(insert_sql, (username, password, first_name, last_name, location, role, job))
         db_conn.commit()
-        user_name = "" + first_name + " " + last_name
-        # Uplaod image file in S3 #
+        
+
         user_image_file_name_in_s3 = "username-" + str(username) + "_photo_file"
         s3 = boto3.resource('s3')
 
@@ -81,7 +81,7 @@ def CreateAccount():
         cursor.close()
 
     print("all modification done...")
-    return render_template('CreateAccountOutput.html', name=user_name)
+    return render_template('Dashboard.html', name=username,fname=first_name, lname=last_name, location=location, role=role, job=job)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -97,7 +97,18 @@ def login():
             query = cursor.fetchone()
             check = query[0]
             if check == 1:
-                return render_template('Dashboard.html')
+                query1 = "SELECT * FROM users WHERE username =%s AND password = %s"
+                cursor1 = db_conn.cursor()
+                try:
+                    cursor1.execute(query1, (username, password))
+                    query1 = cursor1.fetchone()
+                    if query1:
+                        uname, password, fname, lname, location, role, job = query1
+                    else:
+                        print("No user found")
+                finally:
+                    cursor1.close()
+                return render_template('Dashboard.html', name=uname,fname=fname, lname=lname, location=location, role=role, job=job)
             else:
                 return "Invalid username or password"
         finally:
