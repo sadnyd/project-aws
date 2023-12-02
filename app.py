@@ -21,6 +21,11 @@ output = {}
 table = 'users'
 
 
+#changes made
+
+var =12345
+
+
 @app.route("/", methods=['GET', 'POST'])
 def home():
     return render_template('Login_page.html')
