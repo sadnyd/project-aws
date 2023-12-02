@@ -23,7 +23,7 @@ table = 'users'
 
 @app.route("/", methods=['GET', 'POST'])
 def home():
-    return render_template('CreateAccount.html')
+    return render_template('Login_page.html')
 
 
 
