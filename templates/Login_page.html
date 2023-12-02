@@ -12,9 +12,11 @@
       <center><h1>Login</h1></center>
       Username:  <input type="text" name="username"><br><br>
       Password:  <input type="password" name="password" ><br><br>
-      <div class="button login-button">Login</div>
+      <button class="button login-button">Login</button>
     </form>
-    <div class="button create-account-button" onclick="window.location.href='CreateAccount.html'">Create Account</div>
+    <form action="/gotoCreateAccount" autocomplete="on" method="POST" enctype="multipart/form-data">
+      <button class="button create-account-button" type="submit">Create Account</button>
+    </form>
     
   </div>
 </body>

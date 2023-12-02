@@ -97,7 +97,7 @@ def login():
             query = cursor.fetchone()
             check = query[0]
             if check == 1:
-                return "Login successful"
+                return render_template('Dashboard.html')
             else:
                 return "Invalid username or password"
         finally:
@@ -105,6 +105,10 @@ def login():
         
     return render_template('Login_page.html')
 
+
+@app.route('/gotoCreateAccount', methods=['GET', 'POST'])
+def gotoCreateAccount():
+    return render_template('CreateAccount.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)

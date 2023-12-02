@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+    }
+
+    header {
+      background-color: #007bff;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .dashboard-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 20px;
+    }
+
+    .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            max-width: 300px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .card-header {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-content p {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+    .icon {
+      font-size: 48px;
+      color: #007bff;
+    }
+    #upload-container {
+      text-align: center;
+      padding: 20px;
+      border: 2px dashed #aaa;
+      border-radius: 10px;
+      background-color: #fff;
+  }
+
+  #upload-icon {
+      font-size: 50px;
+      color: #aaa;
+  }
+
+  #upload-text {
+      margin-top: 20px;
+      color: #555;
+      font-size: 18px;
+  }
+
+  #file-input {
+      display: none;
+  }
+
+  #upload-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+  }
+
+  #upload-button:hover {
+      background-color: #45a049;
+  }
+  hr {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #d61111, transparent);
+            margin: 20px 0;
+            animation: pulse 1s infinite;
+      }
+
+      @keyframes pulse {
+            0% {
+                transform: scaleX(1);
+            }
+            50% {
+                transform: scaleX(1.1);
+            }
+            100% {
+                transform: scaleX(1);
+            }
+      }
+      #art-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 20px;
+        }
+
+        .art-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            border-color: #d61111;
+        }
+
+        .art-card:hover {
+            transform: scale(1.05);
+        }
+
+        .art-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .art-info {
+            padding: 15px;
+        }
+
+        .art-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .art-author {
+            font-size: 14px;
+            color: #555;
+        }
+        h1 {
+            font-size: 32px;
+            color: #333;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        li {
+          text-align: left;
+        }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Your Dashboard</h1>
+  </header>
+
+  <div class="dashboard-container">
+    <div class="card">
+    <div class="card-header">
+      <h2>User Profile</h2>
+    </div>
+    <div class="card-content">
+      <p>
+        This is some text content for your card. You can provide a brief description or any information you want to display.
+      </p>
+    </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h2>Recent Job Availability</h2>
+      </div>
+      <div class="card-content">
+       <ul>
+          <li>Job 1</li>
+          <li>Job 2</li>
+          <li>Job 3</li>
+          <li>Job 4</li>
+        </ul>
+      </div>
+      </div>
+    <div id="upload-container">
+      <span id="upload-icon">🎨</span>
+      <p id="upload-text">Upload your art by clicking the button below.</p>
+      <label for="file-input" id="upload-button">Choose File</label>
+      <input type="file" id="file-input" />
+  </div>
+  </div>
+  <hr>
+  <center><h1>RECENT UPLOADS</h1></center>
+  <hr>
+  <div id="art-gallery">
+    <div class="art-card">
+        <img class="art-image" src="art1.jpg" alt="Art 1">
+        <div class="art-info">
+            <div class="art-title">Abstract Landscape</div>
+            <div class="art-author">By Artist123</div>
+        </div>
+    </div>
+
+    <div class="art-card">
+        <img class="art-image" src="art2.jpg" alt="Art 2">
+        <div class="art-info">
+            <div class="art-title">Colorful Expression</div>
+            <div class="art-author">By CreativeArtiste</div>
+        </div>
+    </div>
+    <div class="art-card">
+      <img class="art-image" src="art3.jpg" alt="Art 3">
+      <div class="art-info">
+          <div class="art-title">XYZ</div>
+          <div class="art-author">By ABC</div>
+      </div>
+  </div>
+
+</div>
+
+</body>
+</html>
