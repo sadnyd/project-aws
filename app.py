@@ -99,6 +99,7 @@ def login():
             if check == 1:
                 query1 = "SELECT * FROM users WHERE username =%s AND password = %s"
                 cursor1 = db_conn.cursor()
+                query2="SELECT username, location, role, job FROM users;"
                 try:
                     cursor1.execute(query1, (username, password))
                     query1 = cursor1.fetchone()
@@ -106,9 +107,11 @@ def login():
                         uname, password, fname, lname, location, role, job = query1
                     else:
                         print("No user found")
+                    cursor1.execute(query2)
+                    query2 = cursor1.fetchall()
                 finally:
                     cursor1.close()
-                return render_template('Dashboard.html', name=uname,fname=fname, lname=lname, location=location, role=role, job=job)
+                return render_template('Dashboard.html', name=uname,fname=fname, lname=lname, location=location, role=role, job=job, query2=query2)
             else:
                 return "Invalid username or password"
         finally:
